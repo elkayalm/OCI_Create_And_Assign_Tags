@@ -1,0 +1,7 @@
+[DEFAULT]
+tenancy=<tenanacy ocid ocid1.tenancy.oc1....>
+user=<ocid user ocid1.user.oc1....>
+fingerprint=<fingerprint>
+key_file=<path to .pem key>
+region=<home region>
+compartment_id=<root compartment id>
