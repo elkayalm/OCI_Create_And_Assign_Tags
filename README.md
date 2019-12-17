@@ -12,7 +12,7 @@ In my example, I wanted to deploy Richard Garsthagen’s script for OCI-AutoScal
 # Purpose 
 The purpose behind this script is to manage huge quantities of resources at once, by applying tags to all resources that require management. The script becomes useful when it comes managing old resources that have been created since it is hard to get all the resources through the console and apply Tags. Whilst ensuring newly created resources acquire the same tags as well. 
 
-The Namespace, Tag definitions and values are designed in my example is designed to be used in accordance to the OCI-AutoScale script requirements which I used as a motivation to develop my script.
+The Namespace, Tag definitions and values are designed in my example to be used in accordance to the OCI-AutoScale script requirements which I used as a motivation to develop my script.
 
 This script requires access to the OCI API services, so make sure you have access before you run the script!
 
