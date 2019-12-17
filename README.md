@@ -2,7 +2,7 @@
 The tag_assign_resources script creates a Namespace and Defined Tags with a chosen values, then assign these tags to the OCI resources. The OCI resources that will be tagged are Instances, Autonomous Databases and DbSystems. In addition, it creates Default Tags. 
 
 # Usage
-This script creates a Tag Namespace then it will create Defined Tags that belongs to this Namespace, which later on will be assigned to the OCI resources. Moreover, these Tags will be defined as Default Tags to make sure that all new resources are assigned the same tags. 
+This script creates a Tag Namespace then it will create Defined Tags that belongs to this Namespace, which later on will be assigned to the OCI resources. Moreover, these Tags will be defined as Default Tags to make sure that all new resources created are assigned the same tags. 
 
 After setting up all the Tags required, the script starts to gather resources from all regions available and assign these Tags with specific values chosen to them.  
 
