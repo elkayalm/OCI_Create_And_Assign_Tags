@@ -19,16 +19,23 @@
 import oci
 import logging
 import time
+import sys
+
+# Get profile from command line
+if len(sys.argv) == 2:
+  profile = sys.argv[1]
+else:
+  profile='DEFAULT'
 
 configfile = "~\\.oci\\config_autoscale"
 defined_tag={"Schedule": {"WeekDay": '0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0', "Weekend": '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0'}}
 
-config = oci.config.from_file(configfile)
+config = oci.config.from_file(configfile, profile_name=profile)
 identity = oci.identity.IdentityClient(config)
 user = identity.get_user(config["user"]).data
 compartment_id = config['tenancy']
 
-logging.info ("Logged in as: {} @ {}".format(user.description, config["region"]))
+print ("Logged in as: {} @ {}  (Profile={})".format(user.description, config["region"], profile))
 
 regions = identity.list_region_subscriptions(config["tenancy"]).data
 regions_list = []
@@ -153,7 +160,7 @@ for c in regions_list:
                 #print('Updated tags on Instance: {}'.format(update_instance_response.data.display_name))
 
             # Add tags for the AutonomousDatabase
-            elif resource.resource_type == "AutonomousDatabase" and resource.lifecycle_state != "TERMINATED" and resource.lifecycle_state != "HIBERNATED":
+            elif resource.resource_type == "AutonomousDatabase" and resource.lifecycle_state != "TERMINATED":
                 autonomousDatabase_client = oci.database.DatabaseClient(config)
                 autonomousDatabase_id = resource.identifier
 
