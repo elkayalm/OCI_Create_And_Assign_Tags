@@ -90,13 +90,13 @@ else:
 try:
     # Get the tag definitions
     tag_namespaces = identity.list_tag_namespaces(compartment_id).data
-    for x in tag_namespaces:
-        if x.name == "Schedule":
-            tags_in_namespace = identity.list_tags(x.id).data
+    for namespace in tag_namespaces:
+        if namespace.name == "Schedule":
+            tags_in_namespace = identity.list_tags(namespace.id).data
             break
 
-    for i in tags_in_namespace:
-        if i.name == "WeekDay":
+    for tag in tags_in_namespace:
+        if tag.name == "WeekDay":
             # Create default tag
             create_tag_one_default = identity.create_tag_default(
                 oci.identity.models.CreateTagDefaultDetails(
@@ -108,7 +108,7 @@ try:
             )
             print('Created default tag1: {}'.format(create_tag_one_default.data))
 
-        if i.name == "Weekend":
+        if tag.name == "Weekend":
             # Create another default tag
             create_tag_two_default = identity.create_tag_default(
                 oci.identity.models.CreateTagDefaultDetails(
@@ -125,8 +125,8 @@ except oci.exceptions.ServiceError:
 
 print("{:25} {:25} {}".format("Resource type", "Definition", "Tag updated?"))
 # Find all resources required
-for c in regions_list:
-    config['region'] = c
+for region in regions_list:
+    config['region'] = region
     compute = oci.core.ComputeClient(config)
     database = oci.database.DatabaseClient(config)
     pool = oci.core.ComputeManagementClient(config)
