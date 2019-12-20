@@ -26,7 +26,7 @@ defined_tag={"Schedule": {"WeekDay": '0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,
 config = oci.config.from_file(configfile)
 identity = oci.identity.IdentityClient(config)
 user = identity.get_user(config["user"]).data
-compartment_id = config['compartment_id']
+compartment_id = config['tenancy']
 
 logging.info ("Logged in as: {} @ {}".format(user.description, config["region"]))
 
