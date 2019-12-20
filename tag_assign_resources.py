@@ -20,7 +20,7 @@ import oci
 import logging
 import time
 
-configfile = "C:\\Users\\melkayal\\.oci\\config_autoscale"
+configfile = "~\\.oci\\config_autoscale"
 defined_tag={"Schedule": {"WeekDay": '0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0', "Weekend": '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0'}}
 
 config = oci.config.from_file(configfile)
