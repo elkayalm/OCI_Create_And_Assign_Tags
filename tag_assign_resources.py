@@ -1,4 +1,4 @@
-#Tagging&Assigning.py
+#tag_assign_resources.py
 #
 # Creating Namespace, Tags, and Default tags the looping through all regions available and assign these tags to all Instances, AutonomousDatabases, and DbSystems
 #
