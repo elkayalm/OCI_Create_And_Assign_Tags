@@ -6,7 +6,7 @@
 #
 # Parameter:
 #                   profile_name
-#           		(credentials are then picked up from the config file)
+#           		    (credentials are then picked up from the config file)
 #
 #
 # Output:
